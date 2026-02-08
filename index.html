@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para mi cachetoncita hermosa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(180deg, #654b9e, #b87cce);
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* PANTALLA DE ENTRADA */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.intro-box {
+    background: #202033;
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(253, 145, 253, 0.6);
+}
+
+.intro-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-box button {
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #fa80cb, #fa80cb);
+    cursor: pointer;
+    color: #4e1463;
+}
+
+/* CONTENIDO */
+.container {
+    text-align: center;
+    padding-top: 40px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.6rem;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+.image-box {
+    margin: 35px auto 10px;
+    background: #fff7e6;
+    padding: 20px;
+    border-radius: 25px;
+    width: 300px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.7);
+}
+
+.image-box img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* TEXTO ABAJO */
+.love-text {
+    margin-top: 10px;
+    font-size: 3rem;
+    animation: glow 2.5s ease-in-out infinite;
+    position: relative;
+    top: -10px;
+}
+
+/* ANIMACIONES */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #fff; }
+    50% { text-shadow: 0 0 25px #fdade9; }
+    100% { text-shadow: 0 0 10px #fff; }
+}
+
+/* CORAZONES */
+.heart {
+    position: absolute;
+    color: rgba(253, 173, 216, 0.7);
+    animation: float 12s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+}
+
+#texto {
+    color: rgb(54, 0, 59);
+    font-size: 43xp;
+    zoom: 1.9;
+    font-family: "Times New Roman", Times, serif;
+    text-shadow: 0 0 6px #4e1463;
+}
+
+h1 {
+    text-shadow: 0 0 9px #fff7e6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+    <source src="The_Night_We_Met.mp3" type="audio/mpeg">
+</audio>
+
+<!-- INTRO -->
+<div id="intro">
+    <div class="intro-box">
+        <h1>Bienvenida mi niña hermosa</h1>
+        <button onclick="startLove()">Entrar 💖</button>
+    </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container">
+    <h1>Te amo Naidelyn</h1>
+
+    <div class="texto-lateral" id="texto"></div>
+
+    <div class="image-box">
+        <img src="snoopy_heart.png" alt="Snoopy corazón">
+    </div>
+
+    <div class="love-text">💖 Por siempre te amare  💖</div>
+</div>
+
+<script>
+/* INICIAR */
+function startLove() {
+    document.getElementById("intro").style.display = "none";
+    const music = document.getElementById("music");
+    music.volume = 0.7;
+    music.play();
+}
+
+/* FRASES */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const textos = [
+    "Este detalle nació desde mi amor y por todo el amor que siento por ti",
+    "Porque eres la personita que en realidad amo y entraste en mi corazón",
+    "Cada noche anhelo tenerte cerca de mi para sentirte, sentir tu piel y tus labios",
+    "Sin darme cuenta me enamoré de ti",
+    "Estás tan dentro de mí que invades mi mente con tantos escenarios hermosos",
+    "Nunca desearía que el futuro me aleje de ti",
+    "Yo quiero hacerte sentir la mujer más maravillosa de este mundo",
+    "Nunca inmagine conocer a algien tan especial como tu naidelyn",
+    "Eres tan tan gentil que aparte de que siempre me agrdas",
+    "Has sido la niña mas linda y tierna que e conocido",
+    "Espero que algun dia nuestro momento llege",
+    "Y las sircustancias que enfretaremos no nos impida dejar de amarnos",
+    "Yo Alfredo te dedico esto y cada letra nació de mi corazón",
+    "Aún sigo teniendo las esperanzas de amarte toda la vida",
+    "El universo decidió conocernos para algún día formar algo bonito", 
+    "Te amo…"
+  ];
+
+  const texto = document.getElementById("texto");
+  let index = 0;
+
+  const TIEMPO_LECTURA = 11000; // 9 segundos
+
+  function mostrarTexto() {
+    if (index >= textos.length) return;
+
+    texto.innerText = textos[index];
+    index++;
+
+    setTimeout(mostrarTexto, TIEMPO_LECTURA);
+  }
+
+  mostrarTexto();
+
+});
+
+
+    /* CORAZONES */
+for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "✨  💞";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 6 + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
